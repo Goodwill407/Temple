@@ -10,7 +10,7 @@
             <span></span>
           </span>
         </a>
-        <a [routerLink]="routes.home" class="navbar-brand logo">
+        <a routerLink="/home-one" class="navbar-brand logo">
           <img src="assets/img/logo.svg" class="img-fluid" alt="Logo" />
         </a>
       </div>
@@ -24,12 +24,115 @@
           ></a>
         </div>
         <ul class="main-nav">
-          <ng-container *ngFor="let mainMenus of header">
+          <ng-container>
+            <li>
+              <a routerLink="/home-one" [routerLinkActive]="['active']">Home<i class="fas fa-chevron-down"></i></a>
+            </li>
+
+            <li class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a>Listing<i class="fas fa-chevron-down"></i></a>
+             <ul class="submenu">
+                <li>
+                  <a routerLink="listings/listing-grid" [routerLinkActive]="['active']">Listing Grid</a>
+                </li>
+                <li>
+                  <a routerLink="listings/listing-grid-sidebar" [routerLinkActive]="['active']">Listing Grid Sidebar</a>
+                </li>
+                <li>
+                  <a routerLink="listings/listing-list-sidebar" [routerLinkActive]="['active']">Listing List sidebar </a>
+                </li>
+                <li>
+                  <a routerLink="listings/listingmap-list" [routerLinkActive]="['active']">Listing List Map</a>
+                </li>
+                <li>
+                  <a routerLink="listings/listingmap-grid" [routerLinkActive]="['active']">Listing Grid Map</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a >Pages<i class="fas fa-chevron-down"></i></a>
+              <ul class="submenu">
+                <li>
+                  <a routerLink="pages/about" [routerLinkActive]="['active']">About Us</a>
+                </li>
+                <li>
+                  <a routerLink="pages/service-details" [routerLinkActive]="['active']">Service Details</a>
+                </li>
+                <li>
+                  <a routerLink="pages/pricing" [routerLinkActive]="['active']">Pricing</a>
+                </li>
+                <li>
+                  <a routerLink="pages/faq" [routerLinkActive]="['active']">FAQ</a>
+                </li>
+                <li>
+                  <a routerLink="pages/gallery" [routerLinkActive]="['active']">Gallery</a>
+                </li>
+                <li>
+                  <a routerLink="pages/categories" [routerLinkActive]="['active']">Category</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a>UserPages<i class="fas fa-chevron-down"></i></a>
+              <ul class="submenu">
+                <li>
+                  <a routerLink="userpages/dashboard" [routerLinkActive]="['active']">Dashboard</a>
+                </li>
+                <li>
+                  <a routerLink="userpages/profile" [routerLinkActive]="['active']">Profile</a>
+                </li>
+                <li>
+                  <a routerLink="userpages/my-listing" [routerLinkActive]="['active']">My Listing</a>
+                </li>
+                <li>
+                  <a routerLink="userpages/bookmarks" [routerLinkActive]="['active']">Bookmarks</a>
+                </li>
+                <li>
+                  <a routerLink="userpages/messages" [routerLinkActive]="['active']">Messages</a>
+                </li>
+                <li>
+                  <a routerLink="userpages/reviews" [routerLinkActive]="['active']">Reviews</a>
+                </li>
+                <li>
+                  <a routerLink="userpages/add-listing" [routerLinkActive]="['active']">Add Listing</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a >Blogs <i class="fas fa-chevron-down"></i></a>
+              <ul class="submenu">
+                <li>
+                  <a routerLink="blog/blog-list" [routerLinkActive]="['active']">Blog List</a>
+                </li>
+                <li>
+                  <a routerLink="blog/blog-grid" [routerLinkActive]="['active']">Blog Grid</a>
+                </li>
+                <li>
+                  <a routerLink="blog/blog-details" [routerLinkActive]="['active']">Blog Details</a>
+                </li>
+                <li>
+                  <a routerLink="blog/blog-list-sidebar" [routerLinkActive]="['active']">Blog List Sidebar</a>
+                </li>
+                <li>
+                  <a routerLink="blog/blog-grid-sidebar" [routerLinkActive]="['active']">Blog Grid Sidebar</a>
+                </li>
+             </ul>
+            </li>
+            <li>
+              <a routerLink="/contact" [routerLinkActive]="['active']">Contact</a>
+            </li>
+          </ng-container>
+
+
+          <!-- <ng-container *ngFor="let mainMenus of header">
+            --for contact---
             <ng-container *ngIf="mainMenus.separateRoute == true">
               <li [class.active]="base === mainMenus.base ">
                 <a [routerLink]="mainMenus.route">{{ mainMenus.tittle }}</a>
               </li>
             </ng-container>
+            
+            ---for button *ngIf COndition for header button---
             <ng-container *ngIf="mainMenus.separateRoute == false">
               <li
                 class="has-submenu"
@@ -41,8 +144,7 @@
                 <a
                   href="javascript:void(0);"
                   (click)="mainMenus.showAsTab = !mainMenus.showAsTab"
-                  >{{ mainMenus.tittle }} <i class="fas fa-chevron-down"></i
-                ></a>
+                  >{{ mainMenus.tittle }} <i class="fas fa-chevron-down"></i></a>
                 <ul
                   class="submenu"
                   [ngClass]="{
@@ -132,7 +234,7 @@
                 </ul>
               </li>
             </ng-container>
-          </ng-container>
+          </ng-container> -->
         </ul>
       </div>
 

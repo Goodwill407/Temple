@@ -1,0 +1,9 @@
+.active{
+ color: #C10037;
+}
+
+.main-nav li a:hover{
+    color:#C10037 !important ;
+}
+
+

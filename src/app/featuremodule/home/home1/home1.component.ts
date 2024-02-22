@@ -1,138 +1,318 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { routes } from 'src/app/core/helpers/routes/routes';
 import { DataService } from 'src/app/service/data.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import * as AOS from 'aos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home1',
   templateUrl: './home1.component.html',
   styleUrls: ['./home1.component.css'],
 })
-export class Home1Component implements
-OnInit {
+export class Home3Component implements OnInit{
   public routes = routes;
-  public categories: any = [];
-  categoriesDataSource = new MatTableDataSource();
-  searchInputCategory: any;
-  selectedCategory: any = '';
+  public destination: any = [];
+  public recommendedBlog: any = [];
+  public tripdata: any = [];
+  public feedbackdata: any = [];
+  public tripblog: any = [];
+  public guiderecommandeddata: any = [];
+  public restaurants: any = [];
+  public shop: any = [];
+  public business: any = [];
+  public lifestyle: any = [];
+  public restauranttripdata: any = [];
 
-  public featuredads: any = [];
-  public testimonial: any = [];
-  public blog: any = [];
-  public pricing: any = [];
-  public latestads: any = [];
-  public universitiesCompanies: any = [];
+  public activeTab: Array<any> = ['hotels'];
 
-  constructor(private DataService: DataService, public router: Router) {
-    (this.categories = this.DataService.categoriesList),
-      (this.categoriesDataSource = new MatTableDataSource(this.categories));
-
-    (this.featuredads = this.DataService.featuredadsList),
-      (this.testimonial = this.DataService.testimonialList),
-      (this.blog = this.DataService.blogList),
-      (this.pricing = this.DataService.pricingList),
-      (this.latestads = this.DataService.latestadsList),
-      (this.universitiesCompanies = this.DataService.universitiesCompanies);
+  constructor(private Dataservice: DataService,public router:Router) {
+    (this.destination = this.Dataservice.destination),
+      (this.recommendedBlog = this.Dataservice.recommendedBlog),
+      (this.tripdata = this.Dataservice.tripdata),
+      (this.feedbackdata = this.Dataservice.feedback),
+      (this.tripblog = this.Dataservice.tripblog),
+      (this.guiderecommandeddata = this.Dataservice.guiderecommandeddata),
+      (this.restaurants = this.Dataservice.restaurants),
+      (this.shop = this.Dataservice.shops),
+      (this.business = this.Dataservice.business),
+      (this.lifestyle = this.Dataservice.lifestyle),
+      (this.restauranttripdata = this.Dataservice.restauranttripdata);
   }
   ngOnInit(): void {
-    AOS.init({disable:'mobile'}
-    );
+    AOS.init({disable:'mobile'});
   }
-  public featuredadsOwlOptions: OwlOptions = {
-    margin: 24,
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    navSpeed: 700,
-    navText: [
-      "<i class='fa-solid fa-angle-left'></i>",
-      "<i class='fa-solid fa-angle-right'></i>",
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      940: {
-        items: 4,
-      },
-    },
-    nav: true,
-  };
-  public testimonialOwlOptions: OwlOptions = {
-    margin: 24,
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    navSpeed: 700,
-    navText: [
-      "<i class='fa-solid fa-angle-left'></i>",
-      "<i class='fa-solid fa-angle-right'></i>",
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      940: {
-        items: 4,
-      },
-    },
-    nav: true,
-  };
 
-  public universitiesCompaniesOwlOptions: OwlOptions = {
+  public destinationOwlOptions: OwlOptions = {
+    items: 4,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 4,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public recommendedBlogOwlOptions: OwlOptions = {
+    items: 4,
+
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public tripdataOwlOptions: OwlOptions = {
+    items: 4,
     loop: true,
     margin: 24,
     nav: false,
-    autoplay: true,
-    smartSpeed: 2000,
+    dots: true,
+    rtl: false,
 
-    navText: [
-      "<i class='fa-solid fa-angle-left'></i>",
-      "<i class='fa-solid fa-angle-right'></i>",
-    ],
     responsive: {
       0: {
         items: 1,
       },
-
-      550: {
+      768: {
         items: 2,
       },
-      700: {
+      1170: {
         items: 4,
+        loop: true,
       },
-      1000: {
-        items: 6,
+      1024: {
+        items: 4,
+        loop: true,
       },
     },
   };
+  public restauranttripdataOwlOptions: OwlOptions = {
+    items: 4,
+    loop: true,
+    margin: 25,
+    nav: false,
+    dots: true,
+    rtl: false,
 
-  searchCategory(value: any): void {
-    const filterValue = value;
-    this.categoriesDataSource.filter = filterValue.trim().toLowerCase();
-    this.categories = this.categoriesDataSource.filteredData;
-  }
-  direction(){
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public feedbackdataOwlOptions: OwlOptions = {
+    items: 3,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 3,
+        loop: true,
+      },
+      1024: {
+        items: 3,
+        loop: true,
+      },
+    },
+  };
+  public tripblogOwlOptions: OwlOptions = {
+    items: 3,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 3,
+        loop: true,
+      },
+      1024: {
+        items: 3,
+        loop: true,
+      },
+    },
+  };
+  public guiderecommandedOwlOptions: OwlOptions = {
+    items: 4,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+        loop: true,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public restaurantsOwlOptions: OwlOptions = {
+    items: 4,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+        loop: true,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public shopOwlOptions: OwlOptions = {
+    items: 4,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public businessOwlOptions: OwlOptions = {
+    items: 4,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  public lifestyleOwlOptions: OwlOptions = {
+    items: 4,
+    margin: 24,
+    nav: false,
+    dots: true,
+    rtl: false,
+
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      1170: {
+        items: 4,
+        loop: true,
+      },
+      1024: {
+        items: 4,
+        loop: true,
+      },
+    },
+  };
+  path(){
     this.router.navigate([routes.listinggridsidebar])
   }
-  
 }

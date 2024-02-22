@@ -1101,8 +1101,9 @@ table.dataTable thead .sorting_desc_disabled:after {
   padding: 0;
 }
 .main-nav > li > a {
-  color: #374b5c;
+  color: #666666;
 }
+
 .main-nav > li.active > a,
 .header-two .main-nav > li.active > a {
   color: #c10037;
@@ -8354,7 +8355,7 @@ textarea.form-control {
   font-size: 14px !important;
 }
 .banner-section.banner-three {
-  background: url("./assets/img/banner-01.png") no-repeat 380px 0;
+  background: url("./assets/img/banner-02.png") no-repeat 380px 0;
   background-position: top right;
   position: relative;
   padding-top: 86px;
@@ -12236,14 +12237,15 @@ button.btn.car-search-icon:hover {
   margin: 0 7px;
   color: #374b5c;
 }
+/* this Css used in Temple Home */
 .banner-section.banner-nine {
   position: relative;
-  background-image: url(./assets/img/bg/banner-bg.png);
+  background-image: url(./assets/img/bg/bg1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 590.76px;
-  margin-top: 130px;
-  padding: 75px 0 0;
+  height:120vh;
+  /* margin-top: 30px; */
+  padding: 160px 0 0;
 }
 .banner-section.banner-nine h1 {
   font-weight: 800;
