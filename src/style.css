@@ -8547,7 +8547,7 @@ textarea.form-control {
 .destination-blk:before {
   position: absolute;
   content: "";
-  background: url(./assets/img/balloon-img.png) no-repeat center left;
+  /* background: url(./assets/img/balloon-img.png) no-repeat center left; */
   width: 125px;
   height: 182px;
   top: 140px;
@@ -9261,7 +9261,7 @@ textarea.form-control {
 .faq-blk:before {
   position: absolute;
   content: "";
-  background: url(./assets/img/balloon-img.png) no-repeat center left;
+  /* background: url(./assets/img/balloon-img.png) no-repeat center left; */
   width: 125px;
   height: 182px;
   top: 140px;
@@ -9569,7 +9569,7 @@ textarea.form-control {
 .blog-block:before {
   position: absolute;
   content: "";
-  background: url(./assets/img/balloon-img.png) no-repeat center left;
+  /* background: url(./assets/img/balloon-img.png) no-repeat center left; */
   width: 125px;
   height: 182px;
   top: 140px;
@@ -9702,7 +9702,7 @@ textarea.form-control {
   color: #fff;
   margin-bottom: 24px;
 }
-.banner-four .search-box {
+/* .banner-nine .search-box {
   background: linear-gradient(
     90.79deg,
     rgba(242, 242, 242, 0.36) 0%,
@@ -9711,14 +9711,16 @@ textarea.form-control {
   border: 1px solid #ffffff;
   border-radius: 10px;
   padding: 22px;
-}
-.banner-four .search-box label {
+  width:700px;
+ }
+
+.banner-nine .search-box label {
   font-weight: 700;
   font-size: 16px;
   color: #fff;
   margin-bottom: 6px;
 }
-.banner-four .search-box .form-control {
+.banner-nine .search-box .form-control {
   background: transparent;
   border: 0;
   font-size: 14px;
@@ -9726,20 +9728,20 @@ textarea.form-control {
   padding: 0;
   min-height: 20px;
 }
-.banner-four .search-box .form-control::placeholder {
+.banner-nine .search-box .form-control::placeholder {
   color: #fff;
 }
-.banner-four .search-btn .btn-primary {
+.banner-nine .search-btn .btn-primary {
   min-width: 180px;
 }
-.banner-four .search-btn .btn-primary i {
+.banner-nine .search-btn .btn-primary i {
   margin: 0 0 0 10px;
 }
-.banner-four .form-block {
+.banner-nine .form-block {
   justify-content: space-between;
   -webkit-justify-content: space-between;
   -ms-flex-pack: space-between;
-}
+} */
 .category-four-section {
   background: url("./assets/img/bg/category-bg.png"), #f5f8fd;
   background-size: cover;
@@ -12240,7 +12242,7 @@ button.btn.car-search-icon:hover {
 /* this Css used in Temple Home */
 .banner-section.banner-nine {
   position: relative;
-  background-image: url(./assets/img/bg/bg1.jpg);
+  background-image: url(./assets/img/bg/banner-bg_.png);
   background-repeat: no-repeat;
   background-size: cover;
   height:120vh;
@@ -12264,6 +12266,47 @@ button.btn.car-search-icon:hover {
   font-weight: 400;
   font-size: 16px;
   color: #fff;
+}
+/* used for home Banner search box */
+.banner-nine .search-box {
+  background: linear-gradient(
+    90.79deg,
+    rgba(242, 242, 242, 0.36) 0%,
+    rgba(218, 218, 218, 0.47) 100%
+  );
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 22px;
+  width:700px;
+ }
+
+.banner-nine .search-box label {
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.banner-nine .search-box .form-control {
+  background: transparent;
+  border: 0;
+  font-size: 14px;
+  color: #fff;
+  padding: 0;
+  min-height: 20px;
+}
+.banner-nine .search-box .form-control::placeholder {
+  color: #fff;
+}
+.banner-nine .search-btn .btn-primary {
+  min-width: 180px;
+}
+.banner-nine .search-btn .btn-primary i {
+  margin: 0 0 0 10px;
+}
+.banner-nine .form-block {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
 }
 .banner-nine-btn-group {
   padding-top: 40px;

@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header">
+<header *ngIf="isLogIn" class="header">
   <div class="container">
     <nav class="navbar navbar-expand-lg header-nav">
       <div class="navbar-header">
@@ -26,11 +26,11 @@
         <ul class="main-nav">
           <ng-container>
             <li>
-              <a routerLink="/home-one" [routerLinkActive]="['active']">Home<i class="fas fa-chevron-down"></i></a>
+              <a routerLink="home/home-one" [routerLinkActive]="['active']">Home</a>
             </li>
 
             <li class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-              <a>Listing<i class="fas fa-chevron-down"></i></a>
+              <a>Temples<i class="fas fa-chevron-down"></i></a>
              <ul class="submenu">
                 <li>
                   <a routerLink="listings/listing-grid" [routerLinkActive]="['active']">Listing Grid</a>
@@ -50,7 +50,7 @@
               </ul>
             </li>
             <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-              <a >Pages<i class="fas fa-chevron-down"></i></a>
+              <a >Puja Paath<i class="fas fa-chevron-down"></i></a>
               <ul class="submenu">
                 <li>
                   <a routerLink="pages/about" [routerLinkActive]="['active']">About Us</a>
@@ -73,7 +73,7 @@
               </ul>
             </li>
             <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-              <a>UserPages<i class="fas fa-chevron-down"></i></a>
+              <a>Sanatan Dharam<i class="fas fa-chevron-down"></i></a>
               <ul class="submenu">
                 <li>
                   <a routerLink="userpages/dashboard" [routerLinkActive]="['active']">Dashboard</a>
@@ -99,7 +99,7 @@
               </ul>
             </li>
             <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-              <a >Blogs <i class="fas fa-chevron-down"></i></a>
+              <a >Restoration  <i class="fas fa-chevron-down"></i></a>
               <ul class="submenu">
                 <li>
                   <a routerLink="blog/blog-list" [routerLinkActive]="['active']">Blog List</a>
@@ -118,9 +118,18 @@
                 </li>
              </ul>
             </li>
-            <li>
-              <a routerLink="/contact" [routerLinkActive]="['active']">Contact</a>
+            <!-- <li>
+              <a routerLink="/contact" [routerLinkActive]="['active']">Charity</a>
             </li>
+            <li>
+              <a routerLink="/contact" [routerLinkActive]="['active']">Our History</a>
+            </li>
+            <li>
+              <a routerLink="/contact" [routerLinkActive]="['active']">News </a>
+            </li>
+            <li>
+              <a routerLink="/contact" [routerLinkActive]="['active']">eBooks </a>
+            </li> -->
           </ng-container>
 
 
@@ -241,18 +250,18 @@
 
           <ul class="nav header-navbar-rht "*ngIf="nav == true">
             <li class="nav-item">
-              <a class="nav-link header-reg" [routerLink]="routes.signup">Sign Up</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link header-login" [routerLink]="routes.login"> Sign In</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link header-login add-listing"[routerLink]="routes.signup"><i class="fa-solid fa-plus"></i>Sign Up</a>
+            </li>
+            <!-- <li class="nav-item">
               <a
                 class="nav-link header-login add-listing"
                 [routerLink]="routes.addlisting"
                 ><i class="fa-solid fa-plus"></i> Add Listing</a
               >
-            </li>
+            </li> -->
 
 
           </ul>

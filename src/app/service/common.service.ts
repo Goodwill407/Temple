@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,18 @@ export class CommonService {
     public isHeaderFour: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);  
 
-  constructor() { }
+  constructor(private httpService:HttpService) { }
+
+  loginDetails: any;
+
+  setLoginDetails(details: any) {
+    this.loginDetails = details.user;
+    sessionStorage.setItem('userProfile', JSON.stringify(details.user));
+    sessionStorage.setItem('tokens', JSON.stringify(details.tokens));
+    this.httpService.setTokens();
+  }
+  setRefreshToken(data: any) {
+    sessionStorage.setItem('tokens', JSON.stringify(data));
+    this.httpService.setTokens();
+  }
 }

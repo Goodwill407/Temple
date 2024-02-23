@@ -4,6 +4,7 @@ import { DataService } from 'src/app/service/data.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import * as AOS from 'aos';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/service/http.service';
 
 @Component({
   selector: 'app-home1',
@@ -26,7 +27,7 @@ export class Home3Component implements OnInit{
 
   public activeTab: Array<any> = ['hotels'];
 
-  constructor(private Dataservice: DataService,public router:Router) {
+  constructor(private Dataservice: DataService,public router:Router,private httpService:HttpService) {
     (this.destination = this.Dataservice.destination),
       (this.recommendedBlog = this.Dataservice.recommendedBlog),
       (this.tripdata = this.Dataservice.tripdata),
@@ -41,6 +42,7 @@ export class Home3Component implements OnInit{
   }
   ngOnInit(): void {
     AOS.init({disable:'mobile'});
+    this.getTempleData()
   }
 
   public destinationOwlOptions: OwlOptions = {
@@ -314,5 +316,12 @@ export class Home3Component implements OnInit{
   };
   path(){
     this.router.navigate([routes.listinggridsidebar])
+  }
+
+ getTempleData(){
+   this.httpService.get('industry').subscribe((res:any)=>{
+console.log(res);
+
+   })
   }
 }

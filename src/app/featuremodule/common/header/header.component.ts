@@ -4,6 +4,7 @@ import { DataService } from 'src/app/service/data.service';
 import { routes } from 'src/app/core/helpers/routes/routes';
 import { SidebarService } from 'src/app/service/sidebar.service';
 import { CommonService } from 'src/app/service/common.service';
+import { HttpService } from 'src/app/service/http.service';
 
 @Component({
   selector: 'app-header',
@@ -19,11 +20,22 @@ export class HeaderComponent implements OnInit {
   public nav : boolean = false;
   header: Array<any> = [];
   sidebar: Array<any> = [];
+
+  user:any;
+  isLogIn:boolean=false;
   
   
-constructor(private data : DataService,private router: Router, private common: CommonService,
-  
-  private sidebarService: SidebarService){
+constructor(private data : DataService,private router: Router, private common: CommonService,private httpService:HttpService,private sidebarService: SidebarService){
+    // for Login
+    // this.user = JSON.parse(sessionStorage.getItem('userProfile')!);
+    // if (!this.user) {
+    //   this.isLogIn = false;
+    //   this.router.navigate(['login']);
+    // } else {
+    //   this.isLogIn = true;
+    // }
+ 
+
   this.header = this.data.header;
   this.router.events.subscribe((event: any) => {
     if (event instanceof NavigationStart) {
@@ -32,7 +44,15 @@ constructor(private data : DataService,private router: Router, private common: C
   });
   this.getroutes(this.router);
 }
-ngOnInit(): void {}
+ngOnInit(): void {
+  this.httpService.getLoggedIn().subscribe((res: boolean) => {
+    this.isLogIn = res;
+    if (this.isLogIn) {
+      this.user = JSON.parse(sessionStorage.getItem('userProfile')!);
+    }
+  })
+}
+
 private getroutes(route: any): void {
   let splitVal = route.url.split('/');
   this.base = splitVal[1];
@@ -58,6 +78,10 @@ public toggleSidebar(): void {
 public hideSidebar(): void {
   this.sidebarService.closeSidebar();
 }
-
+logout() {
+  sessionStorage.clear();
+  this.httpService.setLoggedIn(false)
+  this.router.navigate(['']);
+}
 
 }

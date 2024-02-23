@@ -1773,45 +1773,41 @@ export class DataService {
         'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard',
     },
   ];
+  // Zone Wise Temple Data Five Zone
   public destination = [
     {
       img: 'assets/img/recommended/destination-01.jpg',
-      desticity: 'New York',
-      city: 'New York',
+      desticity: 'North India',
       description:
-        "New york is the world's second largest and second most- populous continent, being behind Asia in both.",
+        "A temple is a building that people use for worshipping gods or for other religious purposes.",
       details: 'Explore',
     },
     {
       img: 'assets/img/recommended/destination-02.jpg',
-      desticity: 'Dubai',
-      city: 'Dubai',
+      desticity: 'South India',
       description:
-        "New york is the world's second largest and second most- populous continent, being behind Asia in both.",
+        "A temple is a building that people use for worshipping gods or for other religious purposes.",
       details: 'Explore',
     },
     {
       img: 'assets/img/recommended/destination-01.jpg',
-      desticity: 'New York',
-      city: 'New York',
+      desticity: 'East India',
       description:
-        "New york is the world's second largest and second most- populous continent, being behind Asia in both.",
+        "A temple is a building that people use for worshipping gods or for other religious purposes.",
       details: 'Explore',
     },
     {
       img: 'assets/img/recommended/destination-03.jpg',
-      desticity: 'India',
-      city: 'India',
+      desticity: 'West India',
       description:
-        "New york is the world's second largest and second most- populous continent, being behind Asia in both.",
+        "A temple is a building that people use for worshipping gods or for other religious purposes.",
       details: 'Explore',
     },
     {
       img: 'assets/img/recommended/destination-04.jpg',
-      desticity: 'India',
-      city: 'London',
+      desticity: 'Central India',
       description:
-        "New york is the world's second largest and second most- populous continent, being behind Asia in both.",
+        "A temple is a building that people use for worshipping gods or for other religious purposes.",
       details: 'Explore',
     },
    
