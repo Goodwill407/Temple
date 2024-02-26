@@ -26,17 +26,7 @@ export class HeaderComponent implements OnInit {
   
   
 constructor(private data : DataService,private router: Router, private common: CommonService,private httpService:HttpService,private sidebarService: SidebarService){
-    // for Login
-    // this.user = JSON.parse(sessionStorage.getItem('userProfile')!);
-    // if (!this.user) {
-    //   this.isLogIn = false;
-    //   this.router.navigate(['login']);
-    // } else {
-    //   this.isLogIn = true;
-    // }
- 
-
-  this.header = this.data.header;
+    this.header = this.data.header;
   this.router.events.subscribe((event: any) => {
     if (event instanceof NavigationStart) {
       this.getroutes(event);
@@ -44,7 +34,8 @@ constructor(private data : DataService,private router: Router, private common: C
   });
   this.getroutes(this.router);
 }
-ngOnInit(): void {
+ngOnInit(): void { 
+  // after login using
   this.httpService.getLoggedIn().subscribe((res: boolean) => {
     this.isLogIn = res;
     if (this.isLogIn) {

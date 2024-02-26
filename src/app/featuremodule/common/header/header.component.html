@@ -1,5 +1,5 @@
 <!-- Header -->
-<header *ngIf="isLogIn" class="header">
+<header class="header">
   <div class="container">
     <nav class="navbar navbar-expand-lg header-nav">
       <div class="navbar-header">
@@ -26,7 +26,7 @@
         <ul class="main-nav">
           <ng-container>
             <li>
-              <a routerLink="home/home-one" [routerLinkActive]="['active']">Home</a>
+              <a routerLink="home-one" [routerLinkActive]="['active']">Home</a>
             </li>
 
             <li class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
@@ -72,8 +72,8 @@
                 </li>
               </ul>
             </li>
-            <li class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
-              <a>Sanatan Dharam<i class="fas fa-chevron-down"></i></a>
+            <li *ngIf="isLogIn" class="has-submenu" class="has-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+              <a>User Login<i class="fas fa-chevron-down"></i></a>
               <ul class="submenu">
                 <li>
                   <a routerLink="userpages/dashboard" [routerLinkActive]="['active']">Dashboard</a>
@@ -287,7 +287,7 @@
             <div class="dropdown-menu dropdown-menu-end">
               <a class="dropdown-item" [routerLink]='routes.dashboard'>Dashboard</a>
               <a class="dropdown-item" [routerLink]='routes.profile'>Profile Settings</a>
-              <a class="dropdown-item" [routerLink]= 'routes.login'>Logout</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
           </li>
         </ul>

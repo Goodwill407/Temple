@@ -16,18 +16,18 @@ export class FooterComponent implements OnInit {
   public routes = routes;
 
   constructor(public router: Router,private httpService:HttpService){
-    this.user = JSON.parse(sessionStorage.getItem('userProfile')!);
-    if (!this.user) {
-      this.isLogIn = false;
-      this.router.navigate(['login']);
-    } else {
-      this.isLogIn = true;
-    }
+    // this.user = JSON.parse(sessionStorage.getItem('userProfile')!);
+    // if (!this.user) {
+    //   this.isLogIn = false;
+    //   this.router.navigate(['login']);
+    // } else {
+    //   this.isLogIn = true;
+    // }
 
   }
   ngOnInit() {
     AOS.init({disable:'mobile'});
-   
+  //  after Login used
       this.httpService.getLoggedIn().subscribe((res: boolean) => {
         this.isLogIn = res;
         if (this.isLogIn) {

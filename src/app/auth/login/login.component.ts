@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { routes } from 'src/app/core/helpers/routes/routes';
 import { HttpService } from 'src/app/service/http.service';
@@ -28,8 +28,8 @@ export class LoginComponent {
 
   Inisilizevalidations(){
     this.loginForm=this.fb.group({
-      userName: new FormControl(''),
-      password: new FormControl('')
+      userName: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     })
   }
 
@@ -73,7 +73,7 @@ export class LoginComponent {
           // this.messageService.add({ severity: 'success', summary: 'Success fully Login', detail: '' });
           // this.communicationService.setLoginDetails(data);
           this.httpService.setLoggedIn(true);
-          this.router.navigateByUrl('home/home-one');
+          this.router.navigateByUrl('/userpages/dashboard');
           
         }
         // this.isLoading = false;
@@ -86,9 +86,10 @@ export class LoginComponent {
     })
   }
 
-  path(){
-    this.router.navigate([routes.dashboard])
-  }
+  // path(){
+  //   this.router.navigate([routes.dashboard])
+  // }
+  // for password Eay..
   iconLogle() {
     this.Toggledata = !this.Toggledata;
      

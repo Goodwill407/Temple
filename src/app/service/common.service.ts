@@ -24,14 +24,14 @@ export class CommonService {
 
   loginDetails: any;
 
-  setLoginDetails(details: any) {
-    this.loginDetails = details.user;
-    sessionStorage.setItem('userProfile', JSON.stringify(details.user));
-    sessionStorage.setItem('tokens', JSON.stringify(details.tokens));
-    this.httpService.setTokens();
-  }
-  setRefreshToken(data: any) {
-    sessionStorage.setItem('tokens', JSON.stringify(data));
-    this.httpService.setTokens();
-  }
+  // setLoginDetails(details: any) {
+  //   this.loginDetails = details.user;
+  //   sessionStorage.setItem('userProfile', JSON.stringify(details.user));
+  //   sessionStorage.setItem('tokens', JSON.stringify(details.tokens));
+  //   this.httpService.setTokens();
+  // }
+  // setRefreshToken(data: any) {
+  //   sessionStorage.setItem('tokens', JSON.stringify(data));
+  //   this.httpService.setTokens();
+  // }
 }
